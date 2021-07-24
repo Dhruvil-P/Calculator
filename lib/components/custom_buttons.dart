@@ -615,7 +615,9 @@ class _CustomLayoutState extends State<CustomLayout> {
                     number: '.',
                     displayNumber: () {
                       setState(() {
-                        if (!displayText.contains('.')) {
+                        if ('.'.allMatches(displayText).length > 1) {
+                          return;
+                        } else {
                           displayText += '.';
                         }
                       });
