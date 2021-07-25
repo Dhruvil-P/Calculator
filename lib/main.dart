@@ -1,5 +1,7 @@
-import 'package:calculator/components/custom_buttons.dart';
 import 'package:flutter/material.dart';
+
+import './components/custom_buttons.dart';
+
 
 void main() => runApp(MyApp());
 

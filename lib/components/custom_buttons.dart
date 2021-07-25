@@ -1,6 +1,7 @@
-import 'package:calculator/components/function_button.dart';
-import 'package:calculator/components/number_buttons.dart';
 import 'package:flutter/material.dart';
+
+import '../components/function_button.dart';
+import '../components/number_buttons.dart';
 
 class CustomLayout extends StatefulWidget {
   final Size size;
@@ -211,12 +212,11 @@ class _CustomLayoutState extends State<CustomLayout> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         GestureDetector(
-          onPanUpdate: (details) {
+          onPanEnd: (details) {
             if (displayText.length == 0) {
               return;
             } else {
-              if (details.delta.dx * 0.5 < 0) {
-                print(details.delta.dx.floor() * 0.5);
+              if (details.velocity.pixelsPerSecond < Offset.zero) {
                 setState(() {
                   displayText =
                       displayText.substring(0, displayText.length - 1);
